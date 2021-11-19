@@ -8,15 +8,16 @@ namespace SchoolRegister.DAL.EF {
     public class ApplicationDbContext : IdentityDbContext<User,Role,int> {
   
         public virtual DbSet<Grade> Grades { get; set; }
-        public virtual DbSet<Grade> Group { get; set; }
-        public virtual DbSet<Grade> Subject { get; set; }
-        public virtual DbSet<Grade> SubjectGroup { get; set; }
+        public virtual DbSet<Group> Groups { get; set; }
+        public virtual DbSet<Subject> Subjects { get; set; }
+        public virtual DbSet<SubjectGroup> SubjectGroups { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         { }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
             base.OnConfiguring(optionsBuilder);
             //configuration commands
             optionsBuilder.UseLazyLoadingProxies(); //enable lazy loading proxies
+            
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             base.OnModelCreating(modelBuilder); // Fluent API commands 
