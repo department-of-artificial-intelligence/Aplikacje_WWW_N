@@ -24,8 +24,7 @@ namespace SchoolRegister.Web
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    //Configuration.GetConnectionString("DefaultConnection")));
-                    Configuration.GetConnectionString("HomeMZ")));
+                    Configuration.GetConnectionString("DefaultConnection")));;
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<Role>() 
