@@ -25,8 +25,8 @@ namespace SchoolRegister.Web
             services.AddAutoMapper(typeof(Startup));
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    //Configuration.GetConnectionString("DefaultConnection")));
-                    Configuration.GetConnectionString("DefaultConnection"))); //("HomeMZ")));
+                    Configuration.GetConnectionString("DefaultConnection")));
+                    //Configuration.GetConnectionString("HomeMZ")));
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<Role>() 
