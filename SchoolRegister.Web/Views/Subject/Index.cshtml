@@ -1,0 +1,43 @@
+@using SchoolRegister.ViewModels.VM
+@using Microsoft.AspNetCore.Mvc.Localization
+@model IEnumerable<SubjectVm>
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = Localizer["Subject"];
+}
+
+<h2>@ViewData["Title"]</h2>
+<div class="row">
+    <div class="col-4">
+        <div class="form-group">
+            <input class="subjects-filter-input form-control" type="text" placeholder="filter" />
+        </div>
+    </div>
+</div>
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="AddOrEditSubject">@Localizer["CreateNew"]</a>
+    </p>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <label>@Localizer["Name"]</label>
+            </th>
+            <th>
+                <label>@Localizer["Description"]</label>
+            </th>
+            <th>
+                <label>@Localizer["TeacherName"]</label>
+            </th>
+            <th>
+                <label>@Localizer["GroupsCount"]</label>
+            </th>
+        </tr>
+    </thead>
+    <tbody class="subjects-table-data">
+        <partial name="_SubjectsTableDataPartial" model="Model" />
+    </tbody>
+</table>

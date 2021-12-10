@@ -2,16 +2,15 @@ using System;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using AutoMapper;
-//using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using SchoolRegister.DAL.EF;
 using SchoolRegister.Services.Interfaces;
 
-
 namespace SchoolRegister.Services.Services
 {
-    public class EmailSenderService : BaseService, IEmailSenderService, IDisposable {
+    public class EmailSenderService : BaseService, IEmailSender, IEmailSenderService, IDisposable {
         private readonly SmtpClient _smtpClient;
         private readonly IConfiguration _configuration;
         public EmailSenderService (ApplicationDbContext dbContext, ILogger logger, IMapper mapper, SmtpClient smtpClient, IConfiguration configuration) : base (dbContext, mapper, logger) {

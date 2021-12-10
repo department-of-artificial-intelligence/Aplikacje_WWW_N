@@ -1,0 +1,2 @@
+login: pole [UserName] w tabeli [dbo].[AspNetUsers]
+pass: User1234
