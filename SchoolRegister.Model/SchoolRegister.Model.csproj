@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\SchoolRegister.DAL\SchoolRegister.DAL.csproj" />
+    <ProjectReference Include="..\SchoolRegister.ViewModels\SchoolRegister.ViewModels.csproj" />
+    <ProjectReference Include="..\SchoolRegister.Services\SchoolRegister.Services.csproj" />
+    <ProjectReference Include="..\SchoolRegister.Web\SchoolRegister.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="5.0.3" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>
