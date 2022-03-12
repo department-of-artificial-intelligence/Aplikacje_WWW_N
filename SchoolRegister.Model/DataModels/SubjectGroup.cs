@@ -8,5 +8,6 @@ namespace SchoolRegister.Model.DataModels
         public int GroupId {get; set;}
         public Subject Subject {get; set;}
         public int SubjectId {get; set;}
+        //abcdfadf
     }
 }
