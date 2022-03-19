@@ -16,6 +16,9 @@ namespace SchoolRegister.Model.DataModels{
 
         public IList<SubjectGroup> SubjectGroups {get; set;}
 
+        public Teacher Teacher {get; set;}
+
+        public int TeacherID {get; set;}
     }
 
 

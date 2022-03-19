@@ -1,29 +1,19 @@
-using Microsoft.AspNetCore.Identity;
-using System;
 using System.Collections.Generic;
+using System;
+using Microsoft.AspNetCore.Identity;
 
-namespace SchoolRegister.Model.DataModels{
-
-    public class Student:User{
-
-        public double AverageGrade {get;}
-
+namespace SchoolRegister.Model.DataModels
+{
+    public class Student: User
+    {
+        public double AvarageGrade {get;}
         public IDictionary<string,double> AverageGradePerSubject {get;}
-
-        public IList<Grade> Grades{get; set;}
-
-        public IDicttionary<string, List<GradeScale>> GradesPerSubject{get;}
-
+        public IList <Grade> Grades {get; set;}
+        public IDictionary<string, List<GradeScale>> GradesPerSubject {get;}
         public Group Group {get; set;}
-
-        public int Groupld {get; set;}
-
+        public int? GroupId {get; set;}
         public Parent Parent {get; set;}
-
-        public int Parentld {get; set;}
-
-
+        public int? ParentId {get; set;} 
+       
     }
-
-
 }
