@@ -10,6 +10,6 @@ namespace SchoolRegister.Model.DataModels
 
         public string LastName { get; set; }
 
-        public DateTime RegistrationDate { get; set; }
+        public virtual DateTime RegistrationDate { get; set; }
     }
 }
