@@ -15,16 +15,19 @@ namespace SchoolRegister.DAL.EF{
         public virtual DbSet<Grade> Grades{get; set;}
         //more properties need to be added
 
-        public ApplicationDbContext (DbContextOption <ApplicationDbContext> options)
+        public ApplicationDbContext (DbContextOptions <ApplicationDbContext> options)
         :base(options)
         {
         }
 
-        protected override void OnConfiguring(DbContextOptionBuilder){
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
             base.OnConfiguring(optionsBuilder);
             //configuration command
-            optionsBuilder.User.LazyLoadingProxiex(); //enable lazy loading proxies
-        }
+            optionsBuilder.UseLazyLoadingProxies();
+               
+         }
+    
 
         protected ovveride void OnModelCreating(ModelBuilder modelBuilder){
             base.OnModelCreating(modelBuilder);
