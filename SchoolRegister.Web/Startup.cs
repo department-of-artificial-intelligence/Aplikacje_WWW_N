@@ -8,7 +8,9 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
-using SchoolRegister.Web.Data;
+using SchoolRegister.ViewModels.VM;
+using SchoolRegister.Model.DataModels;
+using SchoolRegister.DAL.EF;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -17,12 +19,12 @@ namespace SchoolRegister.Web
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -32,8 +34,13 @@ namespace SchoolRegister.Web
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
+            .AddRoles<Role>()
+            .AddRoleManager<RoleManager<Role>>()
+            .AddUserManager<UserManager<User>>()
+            .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddTrainsient(typeof(Ilogger), typeof(Logger<Startup>));
             services.AddControllersWithViews();
         }
 
@@ -47,7 +54,7 @@ namespace SchoolRegister.Web
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
