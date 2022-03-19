@@ -14,6 +14,7 @@ using SchoolRegister.DAL.EF;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace SchoolRegister.Web
 {
@@ -40,7 +41,7 @@ namespace SchoolRegister.Web
             .AddUserManager<UserManager<User>>()
             .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddTrainsient(typeof(Ilogger), typeof(Logger<Startup>));
+            services.AddTransient(typeof(ILogger), typeof(Logger<Startup>));
             services.AddControllersWithViews();
         }
 

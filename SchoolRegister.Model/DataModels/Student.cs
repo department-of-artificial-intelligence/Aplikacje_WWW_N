@@ -9,8 +9,8 @@ namespace SchoolRegister.Model.DataModels
 {
     public class Student : User
     {
-        public virtual Group Grup { get; set; }
-        [ForeignKey("Grup")]
+        public virtual Group Group { get; set; }
+        [ForeignKey("Group")]
         public int? GroupId { get; set; }
         public IList <Grade> Grades { get; set; }
         public Parent Parent { get; set; }
