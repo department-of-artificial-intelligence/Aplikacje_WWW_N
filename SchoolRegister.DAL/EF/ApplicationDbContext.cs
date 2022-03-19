@@ -29,7 +29,7 @@ namespace SchoolRegister.DAL.EF{
          }
     
 
-        protected ovveride void OnModelCreating(ModelBuilder modelBuilder){
+        protected override void OnModelCreating(ModelBuilder modelBuilder){
             base.OnModelCreating(modelBuilder);
             //fluent API commands
 
