@@ -34,8 +34,8 @@ namespace SchoolRegister.DAL.EF{
             .ToTable("AspNetUser")
             .HasDiscriminator<int>("UserType")
             .HasValue<User>((int)RoleValue.User)
-            .Has<Student>((int)RoleValue.Student)
-            .Has<Parent>((int)RoleValue.Parent)
+            .HasValue<Student>((int)RoleValue.Student)
+            .HasValue<Parent>((int)RoleValue.Parent)
             .HasValue<Teacher>((int)RoleValue.Teacher);
         }
 
