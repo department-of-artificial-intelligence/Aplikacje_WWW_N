@@ -6,5 +6,5 @@ namespace SchoolRegister.Model{
         public string Name {get;set;}
         public IList<Student> Students{get;set;}
         public IList<SubjectGroup> SubjectGroups{get;set;}
-    }
+    } // test
 }
